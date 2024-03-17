@@ -30,13 +30,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int snake = 0;
+  int moveTo = 1;
 
   @override
   void initState() {
     super.initState();
     Timer.periodic(const Duration(milliseconds: 200), (_) {
       setState(() {
-        snake = snake == 400 ? 0 : snake + 1;
+        snake = snake == 400 ? 0 : snake + moveTo;
       });
     });
   }
@@ -81,24 +82,36 @@ class _MyHomePageState extends State<MyHomePage> {
           Column(
             children: [
               CustomIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {});
+                },
                 icon: Icons.arrow_upward_sharp,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomIconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        moveTo = -1;
+                      });
+                    },
                     icon: Icons.arrow_back,
                   ),
                   CustomIconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        moveTo = 1;
+                      });
+                    },
                     icon: Icons.arrow_forward_outlined,
                   ),
                 ],
               ),
               CustomIconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {});
+                },
                 icon: Icons.arrow_downward_outlined,
               ),
             ],
