@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int snake = 0;
   int moveTo = 1;
+  List<int> snakes = [];
 
   @override
   void initState() {
@@ -38,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer.periodic(const Duration(milliseconds: 200), (_) {
       setState(() {
         snake = snake == 400 ? 0 : snake + moveTo;
+        snakes = [snake + moveTo, snake + moveTo + 1, snake + moveTo + 2];
       });
     });
   }
@@ -73,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: const EdgeInsets.all(1.0),
                     width: 15.0,
                     height: 15.0,
-                    color: index == snake ? Colors.red : Colors.white,
+                    color: snakes.contains(index) ? Colors.red : Colors.white,
                   ),
                 ),
               ),
