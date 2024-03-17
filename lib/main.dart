@@ -83,7 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               CustomIconButton(
                 onPressed: () {
-                  setState(() {});
+                  setState(() {
+                    moveTo = -20;
+                  });
                 },
                 icon: Icons.arrow_upward_sharp,
               ),
@@ -110,7 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               CustomIconButton(
                 onPressed: () {
-                  setState(() {});
+                  setState(() {
+                    moveTo = 20;
+                  });
                 },
                 icon: Icons.arrow_downward_outlined,
               ),
